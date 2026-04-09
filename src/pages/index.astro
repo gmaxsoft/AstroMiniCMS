@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import fancyboxScriptUrl from '../scripts/fancybox.ts?url';
 ---
 
 <Layout
@@ -216,7 +215,24 @@ import fancyboxScriptUrl from '../scripts/fancybox.ts?url';
     </div>
   </footer>
 
-  <script type="module" src={fancyboxScriptUrl}></script>
+  <script type="module">
+    import { Fancybox } from "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.esm.js";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      Fancybox.bind('[data-fancybox="cms-carousel"]', {
+        animated: true,
+        showClass: "f-fadeIn",
+        hideClass: "f-fadeOut",
+        Toolbar: {
+          display: {
+            left: [],
+            middle: ["zoomIn", "zoomOut", "toggle1to1", "rotateCCW", "rotateCW", "flipX", "flipY"],
+            right: ["close"],
+          },
+        },
+      });
+    });
+  </script>
 
   <script>
     const header = document.getElementById('header');
