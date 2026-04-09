@@ -120,32 +120,62 @@ import Layout from '../layouts/Layout.astro';
             </button>
             <div class="crm-carousel-track">
               <div class="crm-carousel-slide crm-carousel-active">
-                <a class="crm-carousel-link" href="/img/carousel/logowanie.webp" data-fancybox="cms-carousel" data-caption="Zrzut ekranu systemu CMS 1">
+                <a
+                  class="crm-carousel-link glightbox"
+                  href="/img/carousel/logowanie.webp"
+                  data-gallery="cms-carousel"
+                  data-title="Zrzut ekranu systemu CMS 1"
+                >
                   <img src="/img/carousel/logowanie.webp" alt="Zrzut ekranu systemu CMS 1" width="800" height="500" loading="eager" />
                 </a>
               </div>
               <div class="crm-carousel-slide">
-                <a class="crm-carousel-link" href="/img/carousel/panel.webp" data-fancybox="cms-carousel" data-caption="Zrzut ekranu systemu CMS 2">
+                <a
+                  class="crm-carousel-link glightbox"
+                  href="/img/carousel/panel.webp"
+                  data-gallery="cms-carousel"
+                  data-title="Zrzut ekranu systemu CMS 2"
+                >
                   <img src="/img/carousel/panel.webp" alt="Zrzut ekranu systemu CMS 2" width="800" height="500" loading="lazy" />
                 </a>
               </div>
               <div class="crm-carousel-slide">
-                <a class="crm-carousel-link" href="/img/carousel/nawigacja.webp" data-fancybox="cms-carousel" data-caption="Zrzut ekranu systemu CMS 3">
+                <a
+                  class="crm-carousel-link glightbox"
+                  href="/img/carousel/nawigacja.webp"
+                  data-gallery="cms-carousel"
+                  data-title="Zrzut ekranu systemu CMS 3"
+                >
                   <img src="/img/carousel/nawigacja.webp" alt="Zrzut ekranu systemu CMS 3" width="800" height="500" loading="lazy" />
                 </a>
               </div>
               <div class="crm-carousel-slide">
-                <a class="crm-carousel-link" href="/img/carousel/przerwa.webp" data-fancybox="cms-carousel" data-caption="Zrzut ekranu systemu CMS 4">
+                <a
+                  class="crm-carousel-link glightbox"
+                  href="/img/carousel/przerwa.webp"
+                  data-gallery="cms-carousel"
+                  data-title="Zrzut ekranu systemu CMS 4"
+                >
                   <img src="/img/carousel/przerwa.webp" alt="Zrzut ekranu systemu CMS 4" width="800" height="500" loading="lazy" />
                 </a>
               </div>
               <div class="crm-carousel-slide">
-                <a class="crm-carousel-link" href="/img/carousel/wyswig.webp" data-fancybox="cms-carousel" data-caption="Zrzut ekranu systemu CMS 5">
+                <a
+                  class="crm-carousel-link glightbox"
+                  href="/img/carousel/wyswig.webp"
+                  data-gallery="cms-carousel"
+                  data-title="Zrzut ekranu systemu CMS 5"
+                >
                   <img src="/img/carousel/wyswig.webp" alt="Zrzut ekranu systemu CMS 5" width="800" height="500" loading="lazy" />
                 </a>
               </div>
               <div class="crm-carousel-slide">
-                <a class="crm-carousel-link" href="/img/carousel/galeria.webp" data-fancybox="cms-carousel" data-caption="Zrzut ekranu systemu CMS 6">
+                <a
+                  class="crm-carousel-link glightbox"
+                  href="/img/carousel/galeria.webp"
+                  data-gallery="cms-carousel"
+                  data-title="Zrzut ekranu systemu CMS 6"
+                >
                   <img src="/img/carousel/galeria.webp" alt="Zrzut ekranu systemu CMS 6" width="800" height="500" loading="lazy" />
                 </a>
               </div>
@@ -215,21 +245,16 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </footer>
 
-  <script type="module">
-    import { Fancybox } from "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.esm.js";
-
-    window.addEventListener("DOMContentLoaded", () => {
-      Fancybox.bind('[data-fancybox="cms-carousel"]', {
-        animated: true,
-        showClass: "f-fadeIn",
-        hideClass: "f-fadeOut",
-        Toolbar: {
-          display: {
-            left: [],
-            middle: ["zoomIn", "zoomOut", "toggle1to1", "rotateCCW", "rotateCW", "flipX", "flipY"],
-            right: ["close"],
-          },
-        },
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js" is:inline></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof GLightbox === 'undefined') return;
+      GLightbox({
+        selector: '.crm-carousel .glightbox',
+        loop: true,
+        touchNavigation: true,
+        openEffect: 'zoom',
+        closeEffect: 'fade',
       });
     });
   </script>
@@ -261,6 +286,6 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style is:global>
-  @import '@fancyapps/ui/dist/fancybox/fancybox.css';
+  @import url('https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css');
   @import '../styles/global.css';
 </style>

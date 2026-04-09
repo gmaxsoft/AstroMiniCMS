@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.0.0",
-    "@fancyapps/ui": "^6.1.13",
     "astro": "^5.0.0",
     "astro-seo": "^0.8.4"
   }

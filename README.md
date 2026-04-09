@@ -40,7 +40,7 @@ npm run preview
 
 - **Sekcja “Kluczowe Funkcje Systemu”**: karty funkcji (m.in. “Modułowość i skalowalność”, “Szybkość i elastyczność wdrożenia”).
 - **Karuzela screenów**: nawigacja strzałkami i kropkami.
-- **Podgląd i powiększenie (Fancybox)**: kliknięcie w screen otwiera lightbox (galeria).
+- **Podgląd i powiększenie (GLightbox)**: kliknięcie w screen otwiera lightbox (galeria).
 
 ## Zawartość karuzeli (obrazki)
 
@@ -55,5 +55,5 @@ Jeśli chcesz podmienić screeny:
 - `src/pages/index.astro` – główna strona
 - `src/layouts/Layout.astro` – layout + SEO
 - `src/styles/global.css` – globalne style
-- `src/scripts/fancybox.ts` – inicjalizacja Fancybox
+- Lightbox ładowany z CDN w `src/pages/index.astro` (GLightbox – skrypt klasyczny, bez modułów ESM)
 
